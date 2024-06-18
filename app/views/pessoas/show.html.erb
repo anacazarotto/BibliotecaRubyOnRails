@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detalhes da pessoa</title>
+<style>
+  /* Estilos para o corpo da página */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  /* Estilos para o título principal */
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
+  }
+
+  /* Estilos para a notificação */
+  .notice {
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Estilos para o card */
+  .card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* Estilos para os links */
+  .link-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .link-container a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .link-container a:hover {
+    text-decoration: underline;
+  }
+
+  /* Estilos para o botão de destruir */
+  .link-container form {
+    display: inline;
+  }
+
+  .link-container button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .link-container button:hover {
+    background-color: #d32f2f;
+  }
+</style>
+</head>
+<body>
+  <h1>Detalhes da pessoa</h1>
+
+  <p class="notice"><%= notice %></p>
+
+  <div class="card">
+    <%= render @pessoa %>
+  </div>
+
+  <div class="link-container">
+    <%= link_to "Editar dados da pessoa", edit_pessoa_path(@pessoa) %> |
+    <%= link_to "Voltar para pessoas", pessoas_path %>
+
+    <%= button_to "Excluir está pessoa", @pessoa, method: :delete, data: { confirm: "Tem certeza?" } %>
+  </div>
+</body>
+</html>

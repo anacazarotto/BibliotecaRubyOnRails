@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livros</title>
+<style>
+  /* Estilos para o corpo da página */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
+
+  /* Estilos para o cabeçalho */
+  header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Estilos para a notificação */
+  .notice {
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Estilos para o título principal */
+  h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
+  }
+
+  /* Estilos para o container de livros */
+  #livros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* Estilos para cada livro renderizado */
+  .livro {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  /* Estilos para os links */
+  a {
+    text-decoration: none;
+    color: #4CAF50;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Estilos para o botão de novo livro */
+  .new-livro {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .new-livro:hover {
+    background-color: #45A049;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/livros">Livros</a></li>
+        <li><a href="/funcionarios">Funcionários</a></li>
+        <li><a href="/pessoas">Pessoas</a></li>
+        <li><a href="/editoras">Editoras</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <p class="notice"><%= notice %></p>
+
+  <h1>Livros</h1>
+
+  <div id="livros">
+    <% @livros.each do |livro| %>
+      <div class="livro">
+        <%= render livro %>
+        <p>
+          <%= link_to "Show this livro", livro %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New livro", new_livro_path, class: "new-livro" %>
+</body>
+</html>
